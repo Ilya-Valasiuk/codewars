@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var testObject = {
+        response: {
+            data: [
+                {
+                    element: 'element1',
+                    name: 'testabc'
+                },
+                {
+                    element: 'element2',
+                    name: 'testaudf'
+                }
+            ],
+            config : {}
+        },
+        response2: [
+            {
+                element: 'element1',
+                name: 'testudf'
+            },
+            {
+                element: 'element2',
+                name: 'uddf'
+            }
+        ],
+        a: [
+	        {
+	        	1: 'ggggg'
+	        }
+
+        ]
+    };
+
+
+function findTreasure(obj, map) {
+	var result = map.reduce(function (val, item, i1, map) {
+		return val ? val[item] : null;
+	}, obj);
+	return result;
+}
+debugger
+var map = ['response','data', 0, 'element'];
+console.log(findTreasure(testObject, map)); //=> returns 'element1'
+var map = ['response','data2', 3, 'element'];
+console.log(findTreasure(testObject, map)); //=> returns 'null'
+var map = ['response2', 2, 'element'];
+console.log(findTreasure(testObject, map)); //=> returns 'null'
+</script>
+</body>
+</html>
